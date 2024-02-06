@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bate-papo Interativo</title>
+    <style>
+        #chat-container {
+            width: 300px;
+            height: 400px;
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+            padding: 10px;
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+        }
+
+        .mensagem {
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #e1e1e1;
+        }
+
+        .data-hora {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bate-papo Interativo</h1>
+    <div id="chat-container"></div>
+    <input type="text" id="mensagemInput" placeholder="Digite sua mensagem..." autofocus>
+    <button onclick="enviarMensagem()">Enviar</button>
+
+    <script>
+        function enviarMensagem() {
+            const mensagemInput = document.getElementById('mensagemInput');
+            const mensagem = mensagemInput.value.trim();
+            const chatContainer = document.getElementById('chat-container');
+
+            if (mensagem) {
+                const novaMensagem = document.createElement('div');
+                novaMensagem.classList.add('mensagem');
+                const dataHora = new Date().toLocaleString();
+                novaMensagem.innerHTML = `<span>Você: ${mensagem}</span><br><span class="data-hora">${dataHora}</span>`;
+                chatContainer.appendChild(novaMensagem);
+
+                // Limpa o campo de entrada
+                mensagemInput.value = '';
+
+                // Scroll para a última mensagem
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+
+                // Implementação simples de resposta automática
+                setTimeout(() => {
+                    const resposta = document.createElement('div');
+                    resposta.classList.add('mensagem');
+                    resposta.innerHTML = `<span>Bot: Resposta automática à sua mensagem "${mensagem}"</span><br><span class="data-hora">${new Date().toLocaleString()}</span>`;
+                    chatContainer.appendChild(resposta);
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }, 1000); // Resposta após 1 segundo
+            }
+        }
+
+        // Permite enviar mensagem com a tecla Enter
+        document.getElementById('mensagemInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                enviarMensagem();
+            }
+        });
+    </script>
+</body>
+
+</html>
