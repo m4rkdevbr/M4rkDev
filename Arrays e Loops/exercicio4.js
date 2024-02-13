@@ -1,4 +1,4 @@
-// Faça um programa que encontre as letras"a" e os numeros 4 existem numa determinada palavra. Imprima o resultado na tela.
+// Faça um programa que encontre as letras"a" e os numeros 4git  existem numa determinada palavra. Imprima o resultado na tela.
 
 const palavra = "M4rkDev é a Minha Descrição";
 
