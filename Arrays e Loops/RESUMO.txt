@@ -1,0 +1,123 @@
+O QUE É UM ARRAY?
+
+	Um array é uma coleção de elementos armazenados em uma única variável. Ele permite armazenar uma lista de valores, como números, strings, ou até mesmo outros arrays. Arrays são extremamente úteis para guardar e manipular um conjunto de dados relacionados.
+
+Exemplo:
+javascript
+let frutas = ["Maçã", "Banana", "Laranja"]; // Criando um array com 3 frutas.
+
+
+O QUE É UM LOOP?
+
+	Um loop é uma estrutura de controle que repete um bloco de código enquanto uma condição específica é verdadeira. É ideal para executar tarefas repetitivas, como iterar sobre os elementos de um array, sem precisar escrever o mesmo código várias vezes.
+
+1. Como criar um array:
+
+Para criar um array, você pode utilizar colchetes `[]` e separar os elementos por vírgulas.
+
+Exemplo:
+javascript
+let numeros = [1, 2, 3, 4, 5]; // Criando um array de números.
+```
+
+2. Como acessar um elemento de um array:
+
+Você pode acessar um elemento específico de um array usando o índice do elemento entre colchetes. Os índices começam em 0.
+
+Exemplo:
+javascript
+let primeiroElemento = numeros[0]; // Acessando o primeiro elemento do array 'numeros'.
+
+
+3. Tamanho de um array:
+
+Você pode usar a propriedade `.length` para obter o tamanho de um array.
+
+Exemplo:
+javascript
+let tamanho = numeros.length; // Obtendo o tamanho do array 'numeros'.
+
+4. push():
+
+O método `.push()` adiciona um ou mais elementos ao final de um array.
+
+Exemplo:
+javascript
+numeros.push(6); // Adicionando o número 6 ao final do array 'numeros'.
+
+
+5. Pop ():
+
+O método `.pop()` remove e retorna o último elemento de um array.
+
+Exemplo:
+javascript
+let ultimoElemento = numeros.pop(); // Removendo e retornando o último elemento do array 'numeros'.
+
+
+6. Shift ():
+
+O método `.shift()` remove e retorna o primeiro elemento de um array.
+
+Exemplo:
+javascript
+let primeiroElementoRemovido = numeros.shift(); // Removendo e retornando o primeiro elemento do array 'numeros'.
+
+
+7. Unshift():
+
+O método `.unshift()` adiciona um ou mais elementos ao início de um array.
+
+Exemplo:
+javascript
+numeros.unshift(0); // Adicionando o número 0 ao início do array 'numeros'.
+
+
+8. While:
+
+Um loop `while` executa um bloco de código enquanto uma condição específica é verdadeira.
+
+Exemplo:
+javascript
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
+
+9. For tradicional:
+
+Um loop `for` tradicional é usado para repetir um bloco de código um número específico de vezes.
+
+Exemplo:
+javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+
+10. For OF:
+
+O loop `for...of` permite iterar sobre os elementos de coleções iteráveis, como arrays e strings.
+
+Exemplo:
+javascript
+for (let fruta of frutas) {
+  console.log(fruta);
+}
+
+
+11. Iterando sobre strings e break:
+
+Você pode iterar sobre cada caractere de uma string usando um loop `for` ou `for...of`. A instrução `break` permite sair do loop antes de atingir o final.
+
+Exemplo:
+javascript
+let texto = "Aurora";
+for (let letra of texto) {
+  if (letra === 'r') break; // Interrompe o loop quando encontra a letra 'r'.
+  console.log(letra);
+}
+
+
