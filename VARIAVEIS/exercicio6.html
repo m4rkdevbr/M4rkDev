@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CALCULADORA DE IMC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #2196f3;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CALCULE SEU IMC</h1>
+        <div>
+            <label for="peso">Peso = </label>
+            <input type="text" id="peso"> kg  
+        </div>
+        <div>
+            <label for="altura">Altura = </label>
+            <input type="text" id="altura"> m
+        </div>
+        <button onclick="calcular()">Calcular</button>
+        <div id="resultado"></div>
+        <div id="mensagem"></div>
+    </div>
+    <script>
+        function calcular() {
+            let peso = parseFloat(document.getElementById("peso").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+            let imc = peso / (altura * altura);
+            let classificacao = "";
+            let pesoIdeal = 0;
+
+            if (imc < 18.5) {
+                classificacao = "Abaixo do Peso";
+            }
+            else if (imc < 24.9) {
+                classificacao = "Peso Normal";
+            }
+            else if (imc < 29.9) {
+                classificacao = "Acima do Peso";
+            }
+            else if (imc < 34.9) {
+                classificacao = "Obesidade 1 - Grau de Risco";
+                pesoIdeal = peso - (24.9 * (altura * altura));
+                document.getElementById("mensagem").innerHTML = `Para sair da zona de risco, você precisa perder ${pesoIdeal.toFixed(2)} kg.`;
+            }
+            else if (imc < 39.9) {
+                classificacao = "Obesidade 2 - Grau de Risco Alto";
+                pesoIdeal = peso - (29.9 * (altura * altura));
+                document.getElementById("mensagem").innerHTML = `Para sair da zona de risco, você precisa perder ${pesoIdeal.toFixed(2)} kg.`;
+            }
+            else {
+                classificacao = "Obesidade 3 - Grau de Risco Muito Alto";
+                pesoIdeal = peso - (34.9 * (altura * altura));
+                document.getElementById("mensagem").innerHTML = `Para sair da zona de risco, você precisa perder ${pesoIdeal.toFixed(2)} kg.`;
+            }
+
+            let pesoAtual = peso - pesoIdeal;
+            let pesoPerder = peso - pesoIdeal;
+            document.getElementById("resultado").innerHTML = `IMC: ${imc.toFixed(2)} - ${classificacao} - Peso Atual: ${pesoAtual.toFixed(2)} kg - Peso Ideal: ${pesoPerder.toFixed(2)} kg`;
+        }
+    </script>
+</body>
+</html>
